@@ -53,13 +53,13 @@ export default function Home() {
 
 
 
-          <ListItem  component={Link} href="/" onClick={() => handleNavigation(0, '/')}>
+          <ListItem component={Link} href="/" onClick={() => handleNavigation(0, '/')}>
             <ListItemText primary="Connect" />
           </ListItem>
           <ListItem component={Link} href="/info" onClick={() => handleNavigation(1, '/info')}>
             <ListItemText primary="Info" />
           </ListItem>
-          <ListItem  component={Link} href="/wallet" onClick={() => handleNavigation(2, '/wallet')}>
+          <ListItem component={Link} href="/wallet" onClick={() => handleNavigation(2, '/wallet')}>
             <ListItemText primary="Wallet" />
           </ListItem>
           <ListItem component={Link} href="/settings" onClick={() => handleNavigation(3, '/settings')}>
