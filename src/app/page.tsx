@@ -21,7 +21,7 @@ export default function Home() {
 
   return (
     <div>
-      <AppBar position="static">
+      <AppBar position="static" style={{ backgroundColor: 'green' }}>
         <Toolbar>
           <IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer}>
             <MenuIcon />
@@ -49,12 +49,19 @@ export default function Home() {
       </Drawer>
       <main style={{ padding: '16px' }}>
         <div style={{ textAlign: 'center' }}>
-          <Image src="/assets/logo.png" alt="Logo" width={720} height={160} />
+          {/* <Image src="/logo.png" alt="Logo" width={360} height={80} /> */}
+
+
+
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+  <Image src="/logo.png" alt="Logo" width={360} height={80} />
+</div>
+
           <Typography variant="h4" gutterBottom>
             Connect Wallet
           </Typography>
-          <TextField label="Address" variant="outlined" fullWidth margin="normal" />
-          <Button variant="contained" color="primary" fullWidth>
+          <TextField label="Address" style={{ backgroundColor: 'white' }} variant="outlined" fullWidth margin="normal" />
+          <Button variant="contained" color="primary" style={{ backgroundColor: 'green' }} fullWidth>
             Connect
           </Button>
           <div style={{ marginTop: '20px' }}>
