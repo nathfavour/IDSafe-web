@@ -34,7 +34,10 @@ export default function Home() {
       </AppBar>
       <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer}>
         <List>
-          <ListItem component="a" button onClick={() => handleNavigation(0, '/')}>
+
+
+
+          {/* <ListItem component={Link} button onClick={() => handleNavigation(0, '/')}>
             <ListItemText primary="Connect" />
           </ListItem>
           <ListItem button component="a" onClick={() => handleNavigation(1, '/info')}>
@@ -46,6 +49,25 @@ export default function Home() {
           <ListItem button component="a" onClick={() => handleNavigation(3, '/settings')}>
             <ListItemText primary="Settings" />
           </ListItem>
+ */}
+
+
+
+          <ListItem  component={Link} href="/" onClick={() => handleNavigation(0, '/')}>
+            <ListItemText primary="Connect" />
+          </ListItem>
+          <ListItem component={Link} href="/info" onClick={() => handleNavigation(1, '/info')}>
+            <ListItemText primary="Info" />
+          </ListItem>
+          <ListItem  component={Link} href="/wallet" onClick={() => handleNavigation(2, '/wallet')}>
+            <ListItemText primary="Wallet" />
+          </ListItem>
+          <ListItem component={Link} href="/settings" onClick={() => handleNavigation(3, '/settings')}>
+            <ListItemText primary="Settings" />
+          </ListItem>
+
+
+
         </List>
       </Drawer>
       <main style={{ padding: '16px' }}>
