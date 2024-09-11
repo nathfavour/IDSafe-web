@@ -11,9 +11,6 @@ export default function Home() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const router = useRouter();
 
-  // const handleNavigation = (index, path) => {
-  //   router.push(path);
-  // };
 
   const handleNavigation = (index: number, path: string) => {
     router.push(path);
@@ -37,16 +34,16 @@ export default function Home() {
       </AppBar>
       <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer}>
         <List>
-          <ListItem button onClick={() => handleNavigation(0, '/')}>
+          <ListItem component="a" button onClick={() => handleNavigation(0, '/')}>
             <ListItemText primary="Connect" />
           </ListItem>
-          <ListItem button onClick={() => handleNavigation(1, '/info')}>
+          <ListItem button component="a" onClick={() => handleNavigation(1, '/info')}>
             <ListItemText primary="Info" />
           </ListItem>
-          <ListItem button onClick={() => handleNavigation(2, '/wallet')}>
+          <ListItem button component="a" onClick={() => handleNavigation(2, '/wallet')}>
             <ListItemText primary="Wallet" />
           </ListItem>
-          <ListItem button onClick={() => handleNavigation(3, '/settings')}>
+          <ListItem button component="a" onClick={() => handleNavigation(3, '/settings')}>
             <ListItemText primary="Settings" />
           </ListItem>
         </List>
@@ -127,7 +124,9 @@ export default function Home() {
 
 
 
-
+  // const handleNavigation = (index, path) => {
+  //   router.push(path);
+  // };
 
 // "use client"; // This marks the component as a Client Component
 
