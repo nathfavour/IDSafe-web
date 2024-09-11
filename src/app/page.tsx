@@ -8,12 +8,10 @@ import { AppBar, Toolbar, Typography, Drawer, List, ListItem, ListItemText, Icon
 import MenuIcon from '@mui/icons-material/Menu';
 
 export default function Home() {
-  const [selectedIndex, setSelectedIndex] = useState(0);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const router = useRouter();
 
   const handleNavigation = (index, path) => {
-    setSelectedIndex(index);
     router.push(path);
   };
 
@@ -91,6 +89,128 @@ export default function Home() {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// "use client"; // This marks the component as a Client Component
+
+// import { useState } from 'react';
+// import { useRouter } from 'next/navigation'; // Use next/navigation instead of next/router
+// import Image from 'next/image';
+// import Link from 'next/link';
+// import { AppBar, Toolbar, Typography, Drawer, List, ListItem, ListItemText, IconButton, Button, TextField, Card, CardContent } from '@mui/material';
+// import MenuIcon from '@mui/icons-material/Menu';
+
+// export default function Home() {
+//   const [selectedIndex, setSelectedIndex] = useState(0);
+//   const [drawerOpen, setDrawerOpen] = useState(false);
+//   const router = useRouter();
+
+//   const handleNavigation = (index, path) => {
+//     setSelectedIndex(index);
+//     router.push(path);
+//   };
+
+//   const toggleDrawer = () => {
+//     setDrawerOpen(!drawerOpen);
+//   };
+
+//   return (
+//     <div>
+//       <AppBar position="static">
+//         <Toolbar>
+//           <IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer}>
+//             <MenuIcon />
+//           </IconButton>
+//           <Typography variant="h6" style={{ flexGrow: 1 }}>
+//             IDSafe
+//           </Typography>
+//         </Toolbar>
+//       </AppBar>
+//       <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer}>
+//         <List>
+//           <ListItem button onClick={() => handleNavigation(0, '/')}>
+//             <ListItemText primary="Connect" />
+//           </ListItem>
+//           <ListItem button onClick={() => handleNavigation(1, '/info')}>
+//             <ListItemText primary="Info" />
+//           </ListItem>
+//           <ListItem button onClick={() => handleNavigation(2, '/wallet')}>
+//             <ListItemText primary="Wallet" />
+//           </ListItem>
+//           <ListItem button onClick={() => handleNavigation(3, '/settings')}>
+//             <ListItemText primary="Settings" />
+//           </ListItem>
+//         </List>
+//       </Drawer>
+//       <main style={{ padding: '16px' }}>
+//         <div style={{ textAlign: 'center' }}>
+//           <Image src="/assets/logo.png" alt="Logo" width={720} height={160} />
+//           <Typography variant="h4" gutterBottom>
+//             Connect Wallet
+//           </Typography>
+//           <TextField label="Address" variant="outlined" fullWidth margin="normal" />
+//           <Button variant="contained" color="primary" fullWidth>
+//             Connect
+//           </Button>
+//           <div style={{ marginTop: '20px' }}>
+//             {[
+//               { title: 'Docs', description: 'Find in-depth information about IDSafe features and API.', url: 'https://nextjs.org/docs' },
+//               { title: 'Learn', description: 'Learn how to protect your privacy with IDSafe in an interactive course with quizzes!', url: 'https://nextjs.org/learn' },
+//               { title: 'Templates', description: 'Explore starter templates for IDSafe connections.', url: 'https://vercel.com/templates' },
+//               { title: 'Deploy', description: 'Instantly deploy your Application with IDSafe SDK.', url: 'https://vercel.com/new' },
+//             ].map((link, index) => (
+//               <Card key={index} style={{ margin: '10px 0' }}>
+//                 <CardContent>
+//                   <Typography variant="h5">{link.title}</Typography>
+//                   <Typography variant="body2" color="textSecondary">
+//                     {link.description}
+//                   </Typography>
+//                   <Link href={link.url} passHref>
+//                     <Button variant="contained" color="secondary" style={{ marginTop: '10px' }}>
+//                       Learn More
+//                     </Button>
+//                   </Link>
+//                 </CardContent>
+//               </Card>
+//             ))}
+//           </div>
+//         </div>
+//       </main>
+//       <footer style={{ textAlign: 'center', padding: '20px 0' }}>
+//         <Typography variant="body2" color="textSecondary">
+//           © 2024 IDSafe
+//         </Typography>
+//       </footer>
+//     </div>
+//   );
+// }
 
 
 
