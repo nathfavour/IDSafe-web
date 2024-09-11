@@ -11,7 +11,11 @@ export default function Home() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const router = useRouter();
 
-  const handleNavigation = (index, path) => {
+  // const handleNavigation = (index, path) => {
+  //   router.push(path);
+  // };
+
+  const handleNavigation = (index: number, path: string) => {
     router.push(path);
   };
 
