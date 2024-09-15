@@ -7,6 +7,31 @@ import Link from 'next/link';
 import { AppBar, Toolbar, Typography, Drawer, List, ListItem, ListItemText, IconButton, Button, TextField, Card, CardContent } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#4caf50', // Green color
+    },
+    secondary: {
+      // main: '#ff4081', // Pink color
+      main: '#800080', // Purple color      
+    },
+  },
+});
+
+// export default function Home() {
+//   // Wrap the return statement with ThemeProvider
+//   return (
+//     <ThemeProvider theme={theme}>
+//       {/* Existing code */}
+//     </ThemeProvider>
+//   );
+// }
+
+
 export default function Home() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const router = useRouter();
@@ -21,6 +46,8 @@ export default function Home() {
   };
 
   return (
+    <ThemeProvider theme={theme}>
+
     <div>
       <AppBar position="static" style={{ backgroundColor: 'green' }}>
         <Toolbar>
@@ -32,26 +59,10 @@ export default function Home() {
           </Typography>
         </Toolbar>
       </AppBar>
+
+
       <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer}>
         <List>
-
-
-
-          {/* <ListItem component={Link} button onClick={() => handleNavigation(0, '/')}>
-            <ListItemText primary="Connect" />
-          </ListItem>
-          <ListItem button component="a" onClick={() => handleNavigation(1, '/info')}>
-            <ListItemText primary="Info" />
-          </ListItem>
-          <ListItem button component="a" onClick={() => handleNavigation(2, '/wallet')}>
-            <ListItemText primary="Wallet" />
-          </ListItem>
-          <ListItem button component="a" onClick={() => handleNavigation(3, '/settings')}>
-            <ListItemText primary="Settings" />
-          </ListItem>
- */}
-
-
 
           <ListItem component={Link} href="/" onClick={() => handleNavigation(0, '/')}>
             <ListItemText primary="Connect" />
@@ -66,14 +77,11 @@ export default function Home() {
             <ListItemText primary="Settings" />
           </ListItem>
 
-
-
         </List>
       </Drawer>
+
       <main style={{ padding: '16px' }}>
         <div style={{ textAlign: 'center' }}>
-          {/* <Image src="/logo.png" alt="Logo" width={360} height={80} /> */}
-
 
 
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -117,7 +125,15 @@ export default function Home() {
         </Typography>
       </footer>
     </div>
+
+    </ThemeProvider>
+
+
   );
+
+
+
+
 }
 
 
@@ -144,6 +160,22 @@ export default function Home() {
 
 
 
+
+
+          {/* <ListItem component={Link} button onClick={() => handleNavigation(0, '/')}>
+            <ListItemText primary="Connect" />
+          </ListItem>
+          <ListItem button component="a" onClick={() => handleNavigation(1, '/info')}>
+            <ListItemText primary="Info" />
+          </ListItem>
+          <ListItem button component="a" onClick={() => handleNavigation(2, '/wallet')}>
+            <ListItemText primary="Wallet" />
+          </ListItem>
+          <ListItem button component="a" onClick={() => handleNavigation(3, '/settings')}>
+            <ListItemText primary="Settings" />
+          </ListItem>
+ */}
+          {/* <Image src="/logo.png" alt="Logo" width={360} height={80} /> */}
 
 
   // const handleNavigation = (index, path) => {
