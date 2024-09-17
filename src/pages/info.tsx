@@ -23,7 +23,7 @@ const Info: React.FC = () => {
     router.back();
   };
 
-  const buildLinkCard = (title: string, description: string, url: string) => (
+  const buildLinkCard = (title: string, description: string, _url: string) => (
     <Card sx={{ my: 2 }}>
       <CardContent>
         <Typography variant="h6" component="div">
