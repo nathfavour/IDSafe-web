@@ -21,7 +21,16 @@ const darkTheme = createTheme({
   },
 });
 
-const DrawerPage = ({ drawerOpen, toggleDrawer, handleNavigation }) => {
+interface DrawerPageProps {
+  drawerOpen: boolean;
+  toggleDrawer: () => void;
+  handleNavigation: (index: number, path: string) => void;
+}
+
+// const DrawerPage = ({ drawerOpen, toggleDrawer, handleNavigation }) => {
+
+const DrawerPage: React.FC<DrawerPageProps> = ({ drawerOpen, toggleDrawer, handleNavigation }) => {
+
   const [darkMode, setDarkMode] = useState(false);
 
   const handleThemeChange = () => {
