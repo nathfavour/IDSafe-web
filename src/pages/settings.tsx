@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AppBar, Toolbar, IconButton, Typography, Container, Box, Card, List, ListItem, ListItemIcon, ListItemText, Switch, Tab, Tabs, MenuItem, Select, Dialog, DialogTitle, DialogContent, ListItemButton, SelectChangeEvent } from '@mui/material';
+import { AppBar, Toolbar, IconButton, Typography, Container, Box, List, ListItem, ListItemText, Switch, Tab, Tabs, MenuItem, Select, Dialog, DialogTitle, DialogContent, ListItemButton, SelectChangeEvent } from '@mui/material';
 import { ArrowBack } from '@mui/icons-material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useRouter } from 'next/router';
