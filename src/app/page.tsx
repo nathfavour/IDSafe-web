@@ -13,7 +13,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 // import DrawerPage from '../components/DrawerPage';
 
-import DrawerPage from '@components/DrawerPage';
+import DrawerPage from '@/components/DrawerPage';
 
 const theme = createTheme({
   palette: {
