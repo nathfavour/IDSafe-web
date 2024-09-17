@@ -23,7 +23,21 @@ const Info: React.FC = () => {
     router.back();
   };
 
-  const buildLinkCard = (title: string, description: string) => (
+  // const buildLinkCard = (title: string, description: string, p0?: string) => (
+  //   <Card sx={{ my: 2 }}>
+  //     <CardContent>
+  //       <Typography variant="h6" component="div">
+  //         {title}
+  //       </Typography>
+  //       <Typography variant="body2" color="text.secondary">
+  //         {description}
+  //       </Typography>
+  //     </CardContent>
+  //   </Card>
+  // );
+
+
+  const buildLinkCard = (title: string, description: string, p0?: string) => (
     <Card sx={{ my: 2 }}>
       <CardContent>
         <Typography variant="h6" component="div">
@@ -32,9 +46,16 @@ const Info: React.FC = () => {
         <Typography variant="body2" color="text.secondary">
           {description}
         </Typography>
+        {p0 && (
+          <Typography variant="body2" color="text.secondary">
+            {p0}
+          </Typography>
+        )}
       </CardContent>
     </Card>
   );
+
+
 
   const buildInfoCard = (title: string, description: string, icon: React.ReactNode) => (
     <Card sx={{ my: 2 }}>
