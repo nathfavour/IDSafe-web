@@ -132,10 +132,10 @@ export default function Home() {
           </Button>
           <div style={{ marginTop: '20px' }}>
             {[
-              { title: 'Docs', description: 'Find in-depth information about IDSafe features and API.', url: 'https://nextjs.org/docs' },
-              { title: 'Learn', description: 'Learn how to protect your privacy with IDSafe in an interactive course with quizzes!', url: 'https://nextjs.org/learn' },
-              { title: 'Templates', description: 'Explore starter templates for IDSafe connections.', url: 'https://vercel.com/templates' },
-              { title: 'Deploy', description: 'Instantly deploy your Application with IDSafe SDK.', url: 'https://vercel.com/new' },
+              { title: 'Learn', description: 'Learn how to protect your privacy with IDSafe in an interactive course with quizzes!', url: 'https://9000-idx-idsafe-web-1726061350597.cluster-blu4edcrfnajktuztkjzgyxzek.cloudworkstations.dev/learn' },
+              { title: 'Deploy', description: 'Integrate IDSafe SDK for your app connections', url: 'https://github.com/Hackathonzx/IDSafe-SDK' },
+              { title: 'Socials', description: ' Connect with the IDSafe community.', url: 'https://discord.gg/uA5bW2pH' },
+              // { title: 'Deploy', description: 'Instantly deploy your Application with IDSafe SDK.', url: 'https://vercel.com/new' },
             ].map((link, index) => (
               <Card key={index} style={{ margin: '10px 0' }}>
                 <CardContent>

@@ -80,6 +80,11 @@ const DrawerPage: React.FC<DrawerPageProps> = ({ drawerOpen, toggleDrawer, handl
           <ListItem component={Link} href="/crosschaindaohub" onClick={() => handleNavigation(3, '/crosschaindaohub')}>
             <ListItemText primary="CrossChainDaoHub" />
           </ListItem>
+
+          <ListItem component={Link} href="/learn" onClick={() => handleNavigation(3, '/learn')}>
+            <ListItemText primary="Learn" />
+          </ListItem>
+
         </List>
       </Drawer>
     </ThemeProvider>
