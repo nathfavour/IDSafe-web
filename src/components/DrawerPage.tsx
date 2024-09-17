@@ -65,9 +65,9 @@ const DrawerPage: React.FC<DrawerPageProps> = ({ drawerOpen, toggleDrawer, handl
             <Switch checked={darkMode} onChange={handleThemeChange} />
             <ListItemText primary="Dark Mode" />
           </ListItem>
-          <ListItem component={Link} href="/" onClick={() => handleNavigation(0, '/')}>
+          {/* <ListItem component={Link} href="/" onClick={() => handleNavigation(0, '/')}>
             <ListItemText primary="Connect" />
-          </ListItem>
+          </ListItem> */}
           <ListItem component={Link} href="/info" onClick={() => handleNavigation(1, '/info')}>
             <ListItemText primary="Info" />
           </ListItem>
