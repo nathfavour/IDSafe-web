@@ -1,0 +1,187 @@
+import React, { useState } from 'react';
+import { Drawer, List, ListItem, ListItemText, Switch } from '@mui/material';
+import Link from 'next/link';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const lightTheme = createTheme({
+  palette: {
+    mode: 'light',
+    background: {
+      default: '#ffffff',
+    },
+  },
+});
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+    background: {
+      default: '#3e2723',
+    },
+  },
+});
+
+const DrawerPage = ({ drawerOpen, toggleDrawer, handleNavigation }) => {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const handleThemeChange = () => {
+    setDarkMode(!darkMode);
+  };
+
+  return (
+    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+      <Drawer
+        anchor="left"
+        open={drawerOpen}
+        onClose={toggleDrawer}
+        PaperProps={{
+          sx: {
+            transition: 'transform 0.5s',
+            transform: drawerOpen ? 'rotateY(0deg)' : 'rotateY(-90deg)',
+          },
+        }}
+      >
+        <List>
+          <ListItem>
+            <Switch checked={darkMode} onChange={handleThemeChange} />
+            <ListItemText primary="Dark Mode" />
+          </ListItem>
+          <ListItem component={Link} href="/" onClick={() => handleNavigation(0, '/')}>
+            <ListItemText primary="Connect" />
+          </ListItem>
+          <ListItem component={Link} href="/info" onClick={() => handleNavigation(1, '/info')}>
+            <ListItemText primary="Info" />
+          </ListItem>
+          <ListItem component={Link} href="/wallet" onClick={() => handleNavigation(2, '/wallet')}>
+            <ListItemText primary="Wallet" />
+          </ListItem>
+          <ListItem component={Link} href="/settings" onClick={() => handleNavigation(3, '/settings')}>
+            <ListItemText primary="Settings" />
+          </ListItem>
+          <ListItem component={Link} href="/settings" onClick={() => handleNavigation(3, '/settings')}>
+            <ListItemText primary="CrossChainDaoHub" />
+          </ListItem>
+        </List>
+      </Drawer>
+    </ThemeProvider>
+  );
+};
+
+export default DrawerPage;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useState } from 'react';
+// import { Drawer, List, ListItem, ListItemText, Switch } from '@mui/material';
+// import Link from 'next/link';
+// import { createTheme, ThemeProvider } from '@mui/material/styles';
+// import router from 'next/router';
+
+// const lightTheme = createTheme({
+//   palette: {
+//     mode: 'light',
+//     background: {
+//       default: '#ffffff',
+//     },
+//   },
+// });
+
+// const darkTheme = createTheme({
+//   palette: {
+//     mode: 'dark',
+//     background: {
+//       default: '#3e2723',
+//     },
+//   },
+// });
+
+// const [drawerOpen, setDrawerOpen] = useState(false);
+// //   const router = useRouter();
+
+
+// const handleNavigation = (index: number, path: string) => {
+//     router.push(path);
+//   };
+
+//   const toggleDrawer = () => {
+//     setDrawerOpen(!drawerOpen);
+//   };
+
+
+// const DrawerPage = ({ drawerOpen, toggleDrawer, handleNavigation }) => {
+//   const [darkMode, setDarkMode] = useState(false);
+
+//   const handleThemeChange = () => {
+//     setDarkMode(!darkMode);
+//   };
+
+//   return (
+//     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+//       <Drawer
+//         anchor="left"
+//         open={drawerOpen}
+//         onClose={toggleDrawer}
+//         PaperProps={{
+//           sx: {
+//             transition: 'transform 0.5s',
+//             transform: drawerOpen ? 'rotateY(0deg)' : 'rotateY(-90deg)',
+//           },
+//         }}
+//       >
+//         <List>
+//           <ListItem>
+//             <Switch checked={darkMode} onChange={handleThemeChange} />
+//             <ListItemText primary="Dark Mode" />
+//           </ListItem>
+//           <ListItem component={Link} href="/" onClick={() => handleNavigation(0, '/')}>
+//             <ListItemText primary="Connect" />
+//           </ListItem>
+//           <ListItem component={Link} href="/info" onClick={() => handleNavigation(1, '/info')}>
+//             <ListItemText primary="Info" />
+//           </ListItem>
+//           <ListItem component={Link} href="/wallet" onClick={() => handleNavigation(2, '/wallet')}>
+//             <ListItemText primary="Wallet" />
+//           </ListItem>
+//           <ListItem component={Link} href="/settings" onClick={() => handleNavigation(3, '/settings')}>
+//             <ListItemText primary="Settings" />
+//           </ListItem>
+//           <ListItem component={Link} href="/settings" onClick={() => handleNavigation(3, '/settings')}>
+//             <ListItemText primary="CrossChainDaoHub" />
+//           </ListItem>
+//         </List>
+//       </Drawer>
+//     </ThemeProvider>
+//   );
+// };
+
+// export default DrawerPage;

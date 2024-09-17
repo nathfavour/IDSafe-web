@@ -8,6 +8,7 @@ import { AppBar, Toolbar, Typography, Drawer, List, ListItem, ListItemText, Icon
 import MenuIcon from '@mui/icons-material/Menu';
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import DrawerPage from './components/DrawerPage';
 
 
 const theme = createTheme({
@@ -30,6 +31,25 @@ const theme = createTheme({
 //     </ThemeProvider>
 //   );
 // }
+
+
+// const lightTheme = createTheme({
+//   palette: {
+//     mode: 'light',
+//     background: {
+//       default: '#ffffff',
+//     },
+//   },
+// });
+
+// const darkTheme = createTheme({
+//   palette: {
+//     mode: 'dark',
+//     background: {
+//       default: '#3e2723',
+//     },
+//   },
+// });
 
 
 export default function Home() {
@@ -61,7 +81,14 @@ export default function Home() {
       </AppBar>
 
 
-      <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer}>
+      <DrawerPage
+        drawerOpen={drawerOpen}
+        toggleDrawer={toggleDrawer}
+        handleNavigation={handleNavigation}
+      />
+    {/* </div> */}
+
+      {/* <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer}>
         <List>
 
           <ListItem component={Link} href="/" onClick={() => handleNavigation(0, '/')}>
@@ -77,8 +104,12 @@ export default function Home() {
             <ListItemText primary="Settings" />
           </ListItem>
 
+          <ListItem component={Link} href="/settings" onClick={() => handleNavigation(3, '/settings')}>
+            <ListItemText primary="CrossChainDaoHub" />
+          </ListItem>
+
         </List>
-      </Drawer>
+      </Drawer> */}
 
       <main style={{ padding: '16px' }}>
         <div style={{ textAlign: 'center' }}>
