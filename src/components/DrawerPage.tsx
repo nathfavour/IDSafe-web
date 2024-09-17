@@ -23,11 +23,19 @@ const darkTheme = createTheme({
   },
 });
 
+
 interface DrawerPageProps {
   drawerOpen: boolean;
   toggleDrawer: () => void;
   handleNavigation: (index: number, path: string) => void;
 }
+
+// const handleNavigation = (_index: any, _path: any) => {
+//   // Your navigation logic here
+//   // For example, you can use the router to navigate to the path
+//   // router.push(path);
+//   toggleDrawer(); // Close the drawer after navigation
+// };
 
 // const DrawerPage = ({ drawerOpen, toggleDrawer, handleNavigation }) => {
 
@@ -112,6 +120,10 @@ export default DrawerPage;
 
 
 
+
+function toggleDrawer() {
+  throw new Error('Function not implemented.');
+}
 // import React, { useState } from 'react';
 // import { Drawer, List, ListItem, ListItemText, Switch } from '@mui/material';
 // import Link from 'next/link';
