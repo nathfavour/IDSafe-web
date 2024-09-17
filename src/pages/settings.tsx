@@ -79,7 +79,7 @@ const Settings: React.FC<{ walletString?: string }> = ({ walletString }) => {
                 style={{ color: 'white' }}
               >
                 <MenuItem value="default">default</MenuItem>
-                <MenuItem value="new wallet"> wallet</MenuItem>
+                <MenuItem value="new wallet">new wallet</MenuItem>
               </Select>
             </Toolbar>
             <Tabs value={tabIndex} onChange={handleTabChange} indicatorColor="primary" textColor="inherit">
@@ -100,7 +100,7 @@ const Settings: React.FC<{ walletString?: string }> = ({ walletString }) => {
         </Box>
       </Container>
       <Dialog open={dialogOpen} onClose={handleDialogClose}>
-        <DialogTitle>New Wallet</DialogTitle>
+        <DialogTitle>Wallet</DialogTitle>
         <DialogContent>
           <List>
             <ListItemButton onClick={() => { handleDialogClose(); /* Navigate to create wallet page */ }}>
