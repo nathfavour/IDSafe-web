@@ -60,14 +60,6 @@ const Settings: React.FC<{ walletString?: string }> = ({ walletString }) => {
     setDialogOpen(false);
   };
 
-  const buildInfoCard = (title: string, description: string, icon: React.ReactNode) => (
-    <Card sx={{ my: 2 }}>
-      <ListItem>
-        <ListItemIcon>{icon}</ListItemIcon>
-        <ListItemText primary={title} secondary={description} />
-      </ListItem>
-    </Card>
-  );
 
   return (
     <ThemeProvider theme={theme}>
