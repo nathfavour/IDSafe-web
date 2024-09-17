@@ -77,7 +77,7 @@ const DrawerPage: React.FC<DrawerPageProps> = ({ drawerOpen, toggleDrawer, handl
           <ListItem component={Link} href="/settings" onClick={() => handleNavigation(3, '/settings')}>
             <ListItemText primary="Settings" />
           </ListItem>
-          <ListItem component={Link} href="/settings" onClick={() => handleNavigation(3, '/settings')}>
+          <ListItem component={Link} href="/crosschaindaohub" onClick={() => handleNavigation(3, '/crosschaindaohub')}>
             <ListItemText primary="CrossChainDaoHub" />
           </ListItem>
         </List>
