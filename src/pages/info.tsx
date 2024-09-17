@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Toolbar, IconButton, Typography, Container, Box, Card, CardContent, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { AppBar, Toolbar, IconButton, Typography, Container, Box, Card, CardContent, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import { ArrowBack, QuestionAnswer, PrivacyTip, Code } from '@mui/icons-material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useRouter } from 'next/router';
