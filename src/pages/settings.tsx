@@ -79,7 +79,7 @@ const Settings: React.FC<{ walletString?: string }> = ({ walletString }) => {
                 style={{ color: 'white' }}
               >
                 <MenuItem value="default">default</MenuItem>
-                <MenuItem value="new wallet">new wallet</MenuItem>
+                <MenuItem value="new wallet"> wallet</MenuItem>
               </Select>
             </Toolbar>
             <Tabs value={tabIndex} onChange={handleTabChange} indicatorColor="primary" textColor="inherit">
