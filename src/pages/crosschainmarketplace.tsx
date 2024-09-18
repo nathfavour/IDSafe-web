@@ -52,7 +52,10 @@ const categories = [
 
 const CrossChainMarketplace: React.FC = () => {
   const router = useRouter();
-  const { activate, active, account, library } = useWeb3React<Web3Provider>();
+  // const { activate, active, account, library } = useWeb3React<Web3Provider>();
+
+  const { activate, active, library } = useWeb3React<Web3Provider>();
+
   const [selectedTutorial, setSelectedTutorial] = useState<any>(null);
   const [open, setOpen] = useState(false);
 
