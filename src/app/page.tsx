@@ -120,7 +120,7 @@ export default function Home() {
 
 
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-  <Image src="/logo.png" alt="Logo" width={360} height={80} />
+  <Image src="/logo2.png" alt="Logo" width={360} height={80} />
 </div>
 
           <Typography variant="h4" gutterBottom>
