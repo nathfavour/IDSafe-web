@@ -76,7 +76,7 @@ const Wallet: React.FC = () => {
                     <ListItemIcon>
                       <MonetizationOn />
                     </ListItemIcon>
-                    <ListItemText primary={`Token ${index + 1}`} secondary="Balance: 123.45" />
+                    <ListItemText primary={`Coin ${index + 1}`} secondary="Balance: 123.45" />
                   </ListItem>
                 </Card>
               ))}
