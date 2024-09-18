@@ -13,7 +13,7 @@ const metadata = {
   icons: ['https://avatars.githubusercontent.com/u/37784886']
 }
 
-const web3wallet = await Web3Wallet.init({
-  core, // <- pass the shared 'core' instance
-  metadata
-})
+// const web3wallet = await Web3Wallet.init({
+//   core, // <- pass the shared 'core' instance
+//   metadata
+// })
