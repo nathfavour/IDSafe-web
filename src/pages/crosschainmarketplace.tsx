@@ -4,6 +4,8 @@ import { Home, AccountBalanceWallet, ArrowBack, Settings } from '@mui/icons-mate
 import { useRouter } from 'next/router';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+import { ethers } from 'ethers';
+
 const theme = createTheme({
   palette: {
     primary: {
