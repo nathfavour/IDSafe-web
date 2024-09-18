@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { AppBar, Toolbar, IconButton, Typography, Container, Box, Card, CardContent, Grid, Button, Dialog, DialogContent, DialogActions, Paper, ListItemIcon } from '@mui/material';
-import { Home, AccountBalanceWallet, ArrowBack, Security, Code, School, AccountBalanceWallet as WalletIcon, Info } from '@mui/icons-material';
+import { AccountBalanceWallet, ArrowBack, Security, Code, School, AccountBalanceWallet as WalletIcon, Info } from '@mui/icons-material';
 import { useRouter } from 'next/router';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
