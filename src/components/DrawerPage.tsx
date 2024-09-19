@@ -30,15 +30,6 @@ interface DrawerPageProps {
   handleNavigation: (index: number, path: string) => void;
 }
 
-// const handleNavigation = (_index: any, _path: any) => {
-//   // Your navigation logic here
-//   // For example, you can use the router to navigate to the path
-//   // router.push(path);
-//   toggleDrawer(); // Close the drawer after navigation
-// };
-
-// const DrawerPage = ({ drawerOpen, toggleDrawer, handleNavigation }) => {
-
 const DrawerPage: React.FC<DrawerPageProps> = ({ drawerOpen, toggleDrawer, handleNavigation }) => {
 
   const [darkMode, setDarkMode] = useState(false);
@@ -65,9 +56,7 @@ const DrawerPage: React.FC<DrawerPageProps> = ({ drawerOpen, toggleDrawer, handl
             <Switch checked={darkMode} onChange={handleThemeChange} />
             <ListItemText primary="Dark Mode" />
           </ListItem>
-          {/* <ListItem component={Link} href="/" onClick={() => handleNavigation(0, '/')}>
-            <ListItemText primary="Connect" />
-          </ListItem> */}
+
           <ListItem component={Link} href="/info" onClick={() => handleNavigation(1, '/info')}>
             <ListItemText primary="Info" />
           </ListItem>
@@ -121,8 +110,20 @@ export default DrawerPage;
 
 
 
+{/* <ListItem component={Link} href="/" onClick={() => handleNavigation(0, '/')}>
+  <ListItemText primary="Connect" />
+</ListItem> */}          {/* <ListItem component={Link} href="/" onClick={() => handleNavigation(0, '/')}>
+  <ListItemText primary="Connect" />
+</ListItem> */}
 
+// const handleNavigation = (_index: any, _path: any) => {
+//   // Your navigation logic here
+//   // For example, you can use the router to navigate to the path
+//   // router.push(path);
+//   toggleDrawer(); // Close the drawer after navigation
+// };
 
+// const DrawerPage = ({ drawerOpen, toggleDrawer, handleNavigation }) => {
 
 
 

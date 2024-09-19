@@ -1,175 +1,401 @@
-"use client"; // This marks the component as a Client Component
+'use client'
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation'; // Use next/navigation instead of next/router
-import Image from 'next/image';
-import Link from 'next/link';
-import { AppBar, Toolbar, Typography, IconButton, Button, TextField, Card, CardContent } from '@mui/material';
-
-// import { AppBar, Toolbar, Typography, Drawer, List, ListItem, ListItemText, IconButton, Button, TextField, Card, CardContent } from '@mui/material';
-
-import MenuIcon from '@mui/icons-material/Menu';
-
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-// import DrawerPage from '../components/DrawerPage';
-
-import DrawerPage from '@/components/DrawerPage';
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import Image from 'next/image'
+import Link from 'next/link'
+import { AppBar, Toolbar, Typography, IconButton, Button, TextField, Card, CardContent, Container, Grid, Box, Fade } from '@mui/material'
+import MenuIcon from '@mui/icons-material/Menu'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
+import DrawerPage from '@/components/DrawerPage'
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#4caf50', // Green color
+      main: '#2E7D32', // Darker green
     },
     secondary: {
-      // main: '#ff4081', // Pink color
-      main: '#800080', // Purple color      
+      main: '#6A1B9A', // Darker purple
+    },
+    background: {
+      default: '#F5F5F5', // Light grey background
     },
   },
-});
-
-// export default function Home() {
-//   // Wrap the return statement with ThemeProvider
-//   return (
-//     <ThemeProvider theme={theme}>
-//       {/* Existing code */}
-//     </ThemeProvider>
-//   );
-// }
-
-
-// const lightTheme = createTheme({
-//   palette: {
-//     mode: 'light',
-//     background: {
-//       default: '#ffffff',
-//     },
-//   },
-// });
-
-// const darkTheme = createTheme({
-//   palette: {
-//     mode: 'dark',
-//     background: {
-//       default: '#3e2723',
-//     },
-//   },
-// });
-
+  typography: {
+    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    h4: {
+      fontWeight: 700,
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 8,
+        },
+      },
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          borderRadius: 16,
+          boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+          transition: 'transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out',
+          '&:hover': {
+            transform: 'translateY(-5px)',
+            boxShadow: '0 6px 12px rgba(0,0,0,0.15)',
+          },
+        },
+      },
+    },
+  },
+})
 
 export default function Home() {
-  const [drawerOpen, setDrawerOpen] = useState(false);
-  const router = useRouter();
-
+  const [drawerOpen, setDrawerOpen] = useState(false)
+  const router = useRouter()
 
   const handleNavigation = (index: number, path: string) => {
-    router.push(path);
-  };
+    router.push(path)
+  }
 
   const toggleDrawer = () => {
-    setDrawerOpen(!drawerOpen);
-  };
+    setDrawerOpen(!drawerOpen)
+  }
 
   return (
     <ThemeProvider theme={theme}>
+      <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+        <AppBar position="static" elevation={0}>
+          <Toolbar>
+            <IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer}>
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontWeight: 'bold' }}>
+              IDSafe
+            </Typography>
+          </Toolbar>
+        </AppBar>
 
-    <div>
-      <AppBar position="static" style={{ backgroundColor: 'green' }}>
-        <Toolbar>
-          <IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer}>
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" style={{ flexGrow: 1 }}>
-            IDSafe
-          </Typography>
-        </Toolbar>
-      </AppBar>
+        <DrawerPage
+          drawerOpen={drawerOpen}
+          toggleDrawer={toggleDrawer}
+          handleNavigation={handleNavigation}
+        />
 
+        <Container component="main" sx={{ mt: 4, mb: 4, flexGrow: 1 }}>
+          <Fade in={true} timeout={1000}>
+            <Box sx={{ textAlign: 'center' }}>
+              <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mb: 4 }}>
+                <Image src="/logo2.png" alt="Logo" width={360} height={80} />
+              </Box>
 
-      <DrawerPage
-        drawerOpen={drawerOpen}
-        toggleDrawer={toggleDrawer}
-        handleNavigation={handleNavigation}
-      />
-    {/* </div> */}
+              <Typography variant="h4" gutterBottom sx={{ mb: 4 }}>
+                Connect Wallet
+              </Typography>
 
-      {/* <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer}>
-        <List>
+              <TextField 
+                label="Address" 
+                variant="outlined" 
+                fullWidth 
+                margin="normal" 
+                sx={{ 
+                  backgroundColor: 'white',
+                  '& .MuiOutlinedInput-root': {
+                    '&:hover fieldset': {
+                      borderColor: theme.palette.primary.main,
+                    },
+                  },
+                }}
+              />
 
-          <ListItem component={Link} href="/" onClick={() => handleNavigation(0, '/')}>
-            <ListItemText primary="Connect" />
-          </ListItem>
-          <ListItem component={Link} href="/info" onClick={() => handleNavigation(1, '/info')}>
-            <ListItemText primary="Info" />
-          </ListItem>
-          <ListItem component={Link} href="/wallet" onClick={() => handleNavigation(2, '/wallet')}>
-            <ListItemText primary="Wallet" />
-          </ListItem>
-          <ListItem component={Link} href="/settings" onClick={() => handleNavigation(3, '/settings')}>
-            <ListItemText primary="Settings" />
-          </ListItem>
+              <Button 
+                variant="contained" 
+                color="primary" 
+                fullWidth 
+                size="large"
+                sx={{ 
+                  mt: 2, 
+                  mb: 4,
+                  py: 1.5,
+                  fontWeight: 'bold',
+                  transition: 'all 0.2s',
+                  '&:hover': {
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+                  },
+                }}
+              >
+                Connect
+              </Button>
 
-          <ListItem component={Link} href="/settings" onClick={() => handleNavigation(3, '/settings')}>
-            <ListItemText primary="CrossChainDaoHub" />
-          </ListItem>
+              <Grid container spacing={3}>
+                {[
+                  { title: 'Learn', description: 'Learn how to protect your privacy with IDSafe in an interactive course with quizzes!', url: 'https://9000-idx-idsafe-web-1726061350597.cluster-blu4edcrfnajktuztkjzgyxzek.cloudworkstations.dev/learn' },
+                  { title: 'Deploy', description: 'Integrate IDSafe SDK for your app connections', url: 'https://github.com/Hackathonzx/IDSafe-SDK' },
+                  { title: 'Socials', description: 'Connect with the IDSafe community.', url: 'https://discord.gg/uA5bW2pH' },
+                ].map((link, index) => (
+                  <Grid item xs={12} sm={6} md={4} key={index}>
+                    <Card>
+                      <CardContent sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                        <Typography variant="h5" component="div" gutterBottom sx={{ fontWeight: 'bold' }}>
+                          {link.title}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary" sx={{ flexGrow: 1, mb: 2 }}>
+                          {link.description}
+                        </Typography>
+                        <Link href={link.url} passHref style={{ textDecoration: 'none' }}>
+                          <Button 
+                            variant="contained" 
+                            color="secondary" 
+                            fullWidth
+                            sx={{
+                              transition: 'all 0.2s',
+                              '&:hover': {
+                                transform: 'translateY(-2px)',
+                                boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+                              },
+                            }}
+                          >
+                            Learn More
+                          </Button>
+                        </Link>
+                      </CardContent>
+                    </Card>
+                  </Grid>
+                ))}
+              </Grid>
+            </Box>
+          </Fade>
+        </Container>
 
-        </List>
-      </Drawer> */}
-
-      <main style={{ padding: '16px' }}>
-        <div style={{ textAlign: 'center' }}>
-
-
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-  <Image src="/logo2.png" alt="Logo" width={360} height={80} />
-</div>
-
-          <Typography variant="h4" gutterBottom>
-            Connect Wallet
-          </Typography>
-          <TextField label="Address" style={{ backgroundColor: 'white' }} variant="outlined" fullWidth margin="normal" />
-          <Button variant="contained" color="primary" style={{ backgroundColor: 'green' }} fullWidth>
-            Connect
-          </Button>
-          <div style={{ marginTop: '20px' }}>
-            {[
-              { title: 'Learn', description: 'Learn how to protect your privacy with IDSafe in an interactive course with quizzes!', url: 'https://9000-idx-idsafe-web-1726061350597.cluster-blu4edcrfnajktuztkjzgyxzek.cloudworkstations.dev/learn' },
-              { title: 'Deploy', description: 'Integrate IDSafe SDK for your app connections', url: 'https://github.com/Hackathonzx/IDSafe-SDK' },
-              { title: 'Socials', description: ' Connect with the IDSafe community.', url: 'https://discord.gg/uA5bW2pH' },
-              // { title: 'Deploy', description: 'Instantly deploy your Application with IDSafe SDK.', url: 'https://vercel.com/new' },
-            ].map((link, index) => (
-              <Card key={index} style={{ margin: '10px 0' }}>
-                <CardContent>
-                  <Typography variant="h5">{link.title}</Typography>
-                  <Typography variant="body2" color="textSecondary">
-                    {link.description}
-                  </Typography>
-                  <Link href={link.url} passHref>
-                    <Button variant="contained" color="secondary" style={{ marginTop: '10px' }}>
-                      Learn More
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </main>
-      <footer style={{ textAlign: 'center', padding: '20px 0' }}>
-        <Typography variant="body2" color="textSecondary">
-          © 2024 IDSafe
-        </Typography>
-      </footer>
-    </div>
-
+        <Box component="footer" sx={{ py: 3, px: 2, mt: 'auto', backgroundColor: theme.palette.grey[200] }}>
+          <Container maxWidth="sm">
+            <Typography variant="body2" color="text.secondary" align="center">
+              © {new Date().getFullYear()} IDSafe. All rights reserved.
+            </Typography>
+          </Container>
+        </Box>
+      </Box>
     </ThemeProvider>
-
-
-  );
-
-
-
-
+  )
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// "use client"; // This marks the component as a Client Component
+
+// import { useState } from 'react';
+// import { useRouter } from 'next/navigation'; // Use next/navigation instead of next/router
+// import Image from 'next/image';
+// import Link from 'next/link';
+// import { AppBar, Toolbar, Typography, IconButton, Button, TextField, Card, CardContent } from '@mui/material';
+
+// // import { AppBar, Toolbar, Typography, Drawer, List, ListItem, ListItemText, IconButton, Button, TextField, Card, CardContent } from '@mui/material';
+
+// import MenuIcon from '@mui/icons-material/Menu';
+
+// import { createTheme, ThemeProvider } from '@mui/material/styles';
+// // import DrawerPage from '../components/DrawerPage';
+
+// import DrawerPage from '@/components/DrawerPage';
+
+// const theme = createTheme({
+//   palette: {
+//     primary: {
+//       main: '#4caf50', // Green color
+//     },
+//     secondary: {
+//       // main: '#ff4081', // Pink color
+//       main: '#800080', // Purple color      
+//     },
+//   },
+// });
+
+// // export default function Home() {
+// //   // Wrap the return statement with ThemeProvider
+// //   return (
+// //     <ThemeProvider theme={theme}>
+// //       {/* Existing code */}
+// //     </ThemeProvider>
+// //   );
+// // }
+
+
+// // const lightTheme = createTheme({
+// //   palette: {
+// //     mode: 'light',
+// //     background: {
+// //       default: '#ffffff',
+// //     },
+// //   },
+// // });
+
+// // const darkTheme = createTheme({
+// //   palette: {
+// //     mode: 'dark',
+// //     background: {
+// //       default: '#3e2723',
+// //     },
+// //   },
+// // });
+
+
+// export default function Home() {
+//   const [drawerOpen, setDrawerOpen] = useState(false);
+//   const router = useRouter();
+
+
+//   const handleNavigation = (index: number, path: string) => {
+//     router.push(path);
+//   };
+
+//   const toggleDrawer = () => {
+//     setDrawerOpen(!drawerOpen);
+//   };
+
+//   return (
+//     <ThemeProvider theme={theme}>
+
+//     <div>
+//       <AppBar position="static" style={{ backgroundColor: 'green' }}>
+//         <Toolbar>
+//           <IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer}>
+//             <MenuIcon />
+//           </IconButton>
+//           <Typography variant="h6" style={{ flexGrow: 1 }}>
+//             IDSafe
+//           </Typography>
+//         </Toolbar>
+//       </AppBar>
+
+
+//       <DrawerPage
+//         drawerOpen={drawerOpen}
+//         toggleDrawer={toggleDrawer}
+//         handleNavigation={handleNavigation}
+//       />
+//     {/* </div> */}
+
+//       {/* <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer}>
+//         <List>
+
+//           <ListItem component={Link} href="/" onClick={() => handleNavigation(0, '/')}>
+//             <ListItemText primary="Connect" />
+//           </ListItem>
+//           <ListItem component={Link} href="/info" onClick={() => handleNavigation(1, '/info')}>
+//             <ListItemText primary="Info" />
+//           </ListItem>
+//           <ListItem component={Link} href="/wallet" onClick={() => handleNavigation(2, '/wallet')}>
+//             <ListItemText primary="Wallet" />
+//           </ListItem>
+//           <ListItem component={Link} href="/settings" onClick={() => handleNavigation(3, '/settings')}>
+//             <ListItemText primary="Settings" />
+//           </ListItem>
+
+//           <ListItem component={Link} href="/settings" onClick={() => handleNavigation(3, '/settings')}>
+//             <ListItemText primary="CrossChainDaoHub" />
+//           </ListItem>
+
+//         </List>
+//       </Drawer> */}
+
+//       <main style={{ padding: '16px' }}>
+//         <div style={{ textAlign: 'center' }}>
+
+
+//           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+//   <Image src="/logo2.png" alt="Logo" width={360} height={80} />
+// </div>
+
+//           <Typography variant="h4" gutterBottom>
+//             Connect Wallet
+//           </Typography>
+//           <TextField label="Address" style={{ backgroundColor: 'white' }} variant="outlined" fullWidth margin="normal" />
+//           <Button variant="contained" color="primary" style={{ backgroundColor: 'green' }} fullWidth>
+//             Connect
+//           </Button>
+//           <div style={{ marginTop: '20px' }}>
+//             {[
+//               { title: 'Learn', description: 'Learn how to protect your privacy with IDSafe in an interactive course with quizzes!', url: 'https://9000-idx-idsafe-web-1726061350597.cluster-blu4edcrfnajktuztkjzgyxzek.cloudworkstations.dev/learn' },
+//               { title: 'Deploy', description: 'Integrate IDSafe SDK for your app connections', url: 'https://github.com/Hackathonzx/IDSafe-SDK' },
+//               { title: 'Socials', description: ' Connect with the IDSafe community.', url: 'https://discord.gg/uA5bW2pH' },
+//               // { title: 'Deploy', description: 'Instantly deploy your Application with IDSafe SDK.', url: 'https://vercel.com/new' },
+//             ].map((link, index) => (
+//               <Card key={index} style={{ margin: '10px 0' }}>
+//                 <CardContent>
+//                   <Typography variant="h5">{link.title}</Typography>
+//                   <Typography variant="body2" color="textSecondary">
+//                     {link.description}
+//                   </Typography>
+//                   <Link href={link.url} passHref>
+//                     <Button variant="contained" color="secondary" style={{ marginTop: '10px' }}>
+//                       Learn More
+//                     </Button>
+//                   </Link>
+//                 </CardContent>
+//               </Card>
+//             ))}
+//           </div>
+//         </div>
+//       </main>
+//       <footer style={{ textAlign: 'center', padding: '20px 0' }}>
+//         <Typography variant="body2" color="textSecondary">
+//           © 2024 IDSafe
+//         </Typography>
+//       </footer>
+//     </div>
+
+//     </ThemeProvider>
+
+
+//   );
+
+
+
+
+// }
 
 
 
