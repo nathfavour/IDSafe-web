@@ -131,7 +131,7 @@ export default function Home() {
 
               <Grid container spacing={3}>
                 {[
-                  { title: 'Learn', description: 'Learn how to protect your privacy with IDSafe in an interactive course with quizzes!', url: 'https://9000-idx-idsafe-web-1726061350597.cluster-blu4edcrfnajktuztkjzgyxzek.cloudworkstations.dev/learn' },
+                  { title: 'Learn', description: 'Learn how to protect your privacy with IDSafe in an interactive course with quizzes!', url: 'https://idsafe.vercel.app/learn' },
                   { title: 'Deploy', description: 'Integrate IDSafe SDK for your app connections', url: 'https://github.com/Hackathonzx/IDSafe-SDK' },
                   { title: 'Socials', description: 'Connect with the IDSafe community.', url: 'https://discord.gg/uA5bW2pH' },
                 ].map((link, index) => (
